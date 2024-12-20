@@ -1,0 +1,726 @@
+{
+	"info": {
+		"_postman_id": "46c82133-40e1-4780-ba10-0912415117df",
+		"name": "healthcare_app",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16647275",
+		"_collection_link": "https://restless-robot-11903.postman.co/workspace/Projects-v2~ff167525-4f85-49e1-9740-0385e7238899/collection/16647275-46c82133-40e1-4780-ba10-0912415117df?action=share&source=collection_link&creator=16647275"
+	},
+	"item": [
+		{
+			"name": "Services",
+			"item": [
+				{
+					"name": "scheduleAppointment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n      \"input\": {\n        \"patientId\": \"pat1\",\n        \"providerId\": \"hp1\",\n        \"scheduledDateTime\": \"2024-12-25T01:30:50.618Z\",\n        \"duration\": 15,\n        \"status\": \"Pending\",\n        \"consultationType\": \"InPerson\",\n        \"notes\": \"\"\n      }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/scheduleAppointment",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"scheduleAppointment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getSchedule",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/getSchedule(patientId='pat1')",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"getSchedule(patientId='pat1')"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "confirmApointment",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/confirmApointment(appointmentId='app1')",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"confirmApointment(appointmentId='app1')"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cancelApointment",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/cancelApointment(appointmentId='app1')",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cancelApointment(appointmentId='app1')"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "rescheduledAppointment",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{root}}/business-partner/rescheduledAppointment(appointmentId='app1',externalCustomerId='1000000')",
+							"host": [
+								"{{root}}"
+							],
+							"path": [
+								"business-partner",
+								"rescheduledAppointment(appointmentId='app1',externalCustomerId='1000000')"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "scheduleAppointment External",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n      \"input\": {\n        \"ExternalCustomerId\": \"1000000\"\n      }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{root}}/business-partner/scheduleAppointment",
+							"host": [
+								"{{root}}"
+							],
+							"path": [
+								"business-partner",
+								"scheduleAppointment"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Get Patients",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsImprdSI6Imh0dHBzOi8vZDE4NTRmYWJ0cmlhbC5hdXRoZW50aWNhdGlvbi51czEwLmhhbmEub25kZW1hbmQuY29tL3Rva2VuX2tleXMiLCJraWQiOiJkZWZhdWx0LWp3dC1rZXktNmMzNTRmNDNhNSIsInR5cCI6IkpXVCIsImppZCI6ICIzejk4MGt4ZXQvS1RjdkVUMmhiOVVWZmxuODNNeU02WWVuaHFvUndSbTVVPSJ9.eyJqdGkiOiI2MmJlZjAxZGZiMGU0OTI2YjQ5ZDBiNDI1YzBiMTIxMiIsImV4dF9hdHRyIjp7ImVuaGFuY2VyIjoiWFNVQUEiLCJzdWJhY2NvdW50aWQiOiI5ZWYyZmNmOS1mZDlkLTQyMjgtOWU2Yi01NjMyODkxNDk0MjIiLCJ6ZG4iOiJkMTg1NGZhYnRyaWFsIn0sInN1YiI6InNiLWNhcF9oZWFsdGhjYXJlX2FwcC1kMTg1NGZhYnRyaWFsLWRldiF0MzcwMzU1IiwiYXV0aG9yaXRpZXMiOlsidWFhLnJlc291cmNlIl0sInNjb3BlIjpbInVhYS5yZXNvdXJjZSJdLCJjbGllbnRfaWQiOiJzYi1jYXBfaGVhbHRoY2FyZV9hcHAtZDE4NTRmYWJ0cmlhbC1kZXYhdDM3MDM1NSIsImNpZCI6InNiLWNhcF9oZWFsdGhjYXJlX2FwcC1kMTg1NGZhYnRyaWFsLWRldiF0MzcwMzU1IiwiYXpwIjoic2ItY2FwX2hlYWx0aGNhcmVfYXBwLWQxODU0ZmFidHJpYWwtZGV2IXQzNzAzNTUiLCJncmFudF90eXBlIjoiY2xpZW50X2NyZWRlbnRpYWxzIiwicmV2X3NpZyI6IjMwYjUzYjFkIiwiaWF0IjoxNzM0NjMwOTAxLCJleHAiOjE3MzQ2NzQxMDEsImlzcyI6Imh0dHBzOi8vZDE4NTRmYWJ0cmlhbC5hdXRoZW50aWNhdGlvbi51czEwLmhhbmEub25kZW1hbmQuY29tL29hdXRoL3Rva2VuIiwiemlkIjoiOWVmMmZjZjktZmQ5ZC00MjI4LTllNmItNTYzMjg5MTQ5NDIyIiwiYXVkIjpbInVhYSIsInNiLWNhcF9oZWFsdGhjYXJlX2FwcC1kMTg1NGZhYnRyaWFsLWRldiF0MzcwMzU1Il19.JhnpseiwrbpD8BGpFEdyp8KjU3ReqY2ecGJz_zSHfwI-zWWUOgIby9r8pD9H-v84MgIaCkt7kJRkc3GhVvINKJK3MhQj_X8t573QS4kV-h0BPALReHOz85v85urn3a_x7HY3-uRQPTHgiwv2DS0hIO0ZvpQGMBksEFJtxef8KHEodKlw6G5BihleXbMo_TjNL8xN3LtmU3hKrOLjMMIAplojoffiuWGWih7_iHbyTJzyYMxl9jaN-g1rEUj2YiL9bahIbyHr3wtKHpaY0mrw72Rpyo-hKvcXW0K0oqNcRMBYuTYcxeBPjZ0uAS1HG4kICU8M-O9pMerO-7c7uCpB3Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/Patients",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"Patients"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get InsuranceProvider",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/InsuranceProviders",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"InsuranceProviders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get HealthcareProviders",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/HealthcareProviders",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"HealthcareProviders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Appointments",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/Appointments",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"Appointments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get MedicalRecord",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/MedicalRecords",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"MedicalRecords"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Prescriptions",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/Prescriptions",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"Prescriptions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get TestResults",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/TestResults",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"TestResults"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Patients",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n      \"firstName\": \"Jane\",\n      \"lastName\": \"Smith\",\n      \"dateOfBirth\": \"1990-03-22\",\n      \"gender\": \"Female\",\n      \"email\": \"jane.smith@email.com\",\n      \"phone\": \"+1-555-0126\",\n      \"address\": \"321 Client Ave, Los Angeles, CA 90001\",\n      \"insuranceProvider_ID\": \"ins2\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/Patients",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"Patients"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create InsuranceProvider",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n      \"name\": \"Medicare Plus\",\n      \"address\": \"456 Coverage Blvd, Boston, MA 02108\",\n      \"contactNumber\": \"+1-555-0124\",\n      \"email\": \"support@medicareplus.com\",\n      \"active\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/InsuranceProviders",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"InsuranceProviders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create HealthcareProvider",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n      \"name\": \"Dr. Sarah Williams\",\n      \"email\": \"sarah.williams@hospital.com\",\n      \"phone\": \"+1-555-0128\",\n      \"licenseNumber\": \"MD789012\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/HealthcareProviders",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"HealthcareProviders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Appointment",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n      \"provider_ID\": \"hp2\",\n      \"scheduledDateTime\": \"2024-12-21T14:30:00Z\",\n      \"duration\": 45,\n      \"status\": \"Pending\",\n      \"consultationType\": \"Telehealth\",\n      \"notes\": \"Follow-up consultation\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/Appointments",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"Appointments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create MedicalRecord",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n      \"patient_ID\": \"pat2\",\n      \"provider_ID\": \"hp2\",\n      \"recordDate\": \"2024-12-21T15:00:00Z\",\n      \"diagnosis\": \"Hypertension\",\n      \"treatmentPlan\": \"Prescribed blood pressure medication and lifestyle changes\",\n      \"additionalNotes\": \"Regular blood pressure monitoring recommended\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/MedicalRecords",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"MedicalRecords"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Prescription",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n      \"patient_ID\": \"pat2\",\n      \"provider_ID\": \"hp2\",\n      \"medicalRecord_ID\": \"mr2\",\n      \"medicationName\": \"Lisinopril\",\n      \"dosage\": \"20mg\",\n      \"frequency\": \"Once daily\",\n      \"startDate\": \"2024-12-21\",\n      \"endDate\": \"2025-03-21\",\n      \"instructions\": \"Take one tablet daily with water\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/Prescriptions",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"Prescriptions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create TestResult",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n      \"testType\": \"Complete Blood Count\",\n      \"testDate\": \"2024-12-21T14:45:00Z\",\n      \"result\": \"WBC: 7.5, RBC: 4.8, Hgb: 14.2\",\n      \"referenceRange\": \"WBC: 4.5-11.0, RBC: 4.5-5.5, Hgb: 13.5-17.5\",\n      \"status\": \"Normal\",\n      \"attachmentUrl\": \"/attachments/cbc_report_456.pdf\",\n      \"patient_ID\": \"pat2\",\n      \"provider_ID\": \"hp2\",\n      \"medicalRecord_ID\": \"mr2\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/TestResults",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"TestResults"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "https://port4004-workspaces-ws-rh7hx.us10.trial.applicationstudio.cloud.sap/odata/v4/healthcare",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "eyJhbGciOiJSUzI1NiIsImprdSI6Imh0dHBzOi8vZDE4NTRmYWJ0cmlhbC5hdXRoZW50aWNhdGlvbi51czEwLmhhbmEub25kZW1hbmQuY29tL3Rva2VuX2tleXMiLCJraWQiOiJkZWZhdWx0LWp3dC1rZXktNmMzNTRmNDNhNSIsInR5cCI6IkpXVCIsImppZCI6ICJKT3hzMHJHQm1yTUdScUZ6WmxmeDZTWjdNaTU0VXN5RzZlamR5RlVheFpBPSJ9.eyJqdGkiOiIzZGEyMmUzYTUxOTI0ZWQ0YjkzZWI2NWRlM2IxOTNmOCIsImV4dF9hdHRyIjp7ImVuaGFuY2VyIjoiWFNVQUEiLCJzdWJhY2NvdW50aWQiOiI5ZWYyZmNmOS1mZDlkLTQyMjgtOWU2Yi01NjMyODkxNDk0MjIiLCJ6ZG4iOiJkMTg1NGZhYnRyaWFsIn0sInN1YiI6InNiLWNhcF9oZWFsdGhjYXJlX2FwcC1kMTg1NGZhYnRyaWFsLWRldiF0MzcwMzU1IiwiYXV0aG9yaXRpZXMiOlsidWFhLnJlc291cmNlIl0sInNjb3BlIjpbInVhYS5yZXNvdXJjZSJdLCJjbGllbnRfaWQiOiJzYi1jYXBfaGVhbHRoY2FyZV9hcHAtZDE4NTRmYWJ0cmlhbC1kZXYhdDM3MDM1NSIsImNpZCI6InNiLWNhcF9oZWFsdGhjYXJlX2FwcC1kMTg1NGZhYnRyaWFsLWRldiF0MzcwMzU1IiwiYXpwIjoic2ItY2FwX2hlYWx0aGNhcmVfYXBwLWQxODU0ZmFidHJpYWwtZGV2IXQzNzAzNTUiLCJncmFudF90eXBlIjoiY2xpZW50X2NyZWRlbnRpYWxzIiwicmV2X3NpZyI6IjMwYjUzYjFkIiwiaWF0IjoxNzM0NTc2MjYzLCJleHAiOjE3MzQ2MTk0NjMsImlzcyI6Imh0dHBzOi8vZDE4NTRmYWJ0cmlhbC5hdXRoZW50aWNhdGlvbi51czEwLmhhbmEub25kZW1hbmQuY29tL29hdXRoL3Rva2VuIiwiemlkIjoiOWVmMmZjZjktZmQ5ZC00MjI4LTllNmItNTYzMjg5MTQ5NDIyIiwiYXVkIjpbInVhYSIsInNiLWNhcF9oZWFsdGhjYXJlX2FwcC1kMTg1NGZhYnRyaWFsLWRldiF0MzcwMzU1Il19.O_V4BqXh6sC2OIZcN8oMG_DV3Tct8biB8gok6H8KU3ABqxVG0QHakLYrITVWrfwAB-pjutMMgZapxWe9ZMLWpy8vGWfGiKn5ZxP_9wU2FeS1NuAC0K3Du_hOqp6BZre2bsN4vpjkZV2aCQsTJNrtv9591BIRp9ESZs0u4l3PCvolLM-J2H8vdN9UtyopVFAFAARW-cMB960bOzN5VZKwoUUxzMC4Oj8zJP9zStbN3onD1E6tXd2Vd-JcAVgHEij-OMe0RQn-PSUlzA1RoVAwW7R80ZDRydYUGj_wWxp9hr7OYku89kwbJoYzsBHNunkfKXCuNuM2eOrupgqAfYX6eA",
+			"type": "string"
+		},
+		{
+			"key": "root",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
